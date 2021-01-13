@@ -36,7 +36,11 @@ router.post("/novogrupo", async (req, res) => {
 
     const families2 = families.splice(0, Math.ceil(families.length / 2));
 
-    const group = new Group({ controle: families, intervencao: families2 });
+    const group = new Group({
+      controle: families,
+      intervencao: families2,
+      userId: req.user._id,
+    });
     await group.save();
 
     res.send("Novo grupo cadastrado com sucesso");
@@ -47,7 +51,7 @@ router.post("/novogrupo", async (req, res) => {
 
 router.get("/grupos", async (req, res) => {
   const grupos = await Group.find({ userId: req.user._id });
-
+  console.log(req.user._id--);
   res.send(grupos);
 });
 
