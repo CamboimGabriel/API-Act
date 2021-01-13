@@ -27,16 +27,8 @@ router.post("/novafamilia", async (req, res) => {
 });
 
 router.get("/familias", async (req, res) => {
-  const familias = { semGrupo: [], comGrupo: [] };
-
-  familias.semGrupo = await Family.find({
+  const familias = await Family.find({
     userId: req.user._id,
-    pertenceGrupo: 0,
-  });
-
-  familias.comGrupo = await Family.find({
-    userId: req.user._id,
-    pertenceGrupo: 1,
   });
 
   res.send(familias);
