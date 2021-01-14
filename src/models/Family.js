@@ -5,10 +5,6 @@ const familySchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  dataCriacao: {
-    type: String,
-    default: " ",
-  },
   crianca: {
     nome: {
       type: String,
@@ -132,10 +128,6 @@ const familySchema = new mongoose.Schema({
       type: String,
       default: " ",
     },
-  },
-  formulariosPreenchidos: {
-    type: Number,
-    default: 0,
   },
   pertenceGrupo: {
     type: Number,

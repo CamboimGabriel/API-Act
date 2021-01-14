@@ -7,20 +7,28 @@ const groupSchema = new mongoose.Schema({
   },
   controle: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Family",
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Family",
+      },
+      formulariosPreenchidos: {
+        type: Number,
+        default: 0,
+      },
     },
   ],
   intervencao: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Family",
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Family",
+      },
+      formulariosPreenchidos: {
+        type: Number,
+        default: 0,
+      },
     },
   ],
-  dataCriacao: {
-    type: String,
-    default: "",
-  },
 });
 
 mongoose.model("Group", groupSchema);
