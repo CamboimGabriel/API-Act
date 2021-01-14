@@ -11,10 +11,6 @@ const groupSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Family",
       },
-      formulariosPreenchidos: {
-        type: Number,
-        default: 0,
-      },
     },
   ],
   intervencao: [
@@ -22,10 +18,6 @@ const groupSchema = new mongoose.Schema({
       id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Family",
-      },
-      formulariosPreenchidos: {
-        type: Number,
-        default: 0,
       },
     },
   ],

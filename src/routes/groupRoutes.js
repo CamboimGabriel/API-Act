@@ -55,4 +55,12 @@ router.get("/grupos", async (req, res) => {
   res.send(grupos);
 });
 
+router.get("/grupo/:id", async (req, res) => {
+  const { id } = req.params.id;
+
+  const grupo = await Group.findById(id);
+
+  res.send(grupo);
+});
+
 module.exports = router;

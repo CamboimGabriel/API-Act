@@ -133,6 +133,10 @@ const familySchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  formulariosPreenchidos: {
+    type: Number,
+    default: 0,
+  },
 });
 
 mongoose.model("Family", familySchema);

@@ -47,9 +47,15 @@ router.get("/familia/:id", async (req, res) => {
 
   const familia = await Family.findById(id);
 
-  console.log(familia);
-
   res.send(familia);
+});
+
+roouter.get("/familia/form/:id", async (req, res) => {
+  const id = req.params.id;
+
+  const familia = await Family.findById(id);
+
+  res.send(familia.formulariosPreenchidos);
 });
 
 module.exports = router;

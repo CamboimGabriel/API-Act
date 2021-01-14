@@ -1,11 +1,13 @@
 require("./models/User");
 require("./models/Family");
 require("./models/Group");
+require("./models/Form");
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const familyRoutes = require("./routes/familyRoutes");
 const groupRoutes = require("./routes/groupRoutes");
+const formRoutes = require("./routes/formRoutes");
 const bodyParser = require("body-parser");
 const requireAuth = require("./middlewares/requireAuth");
 
@@ -15,6 +17,7 @@ app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(familyRoutes);
 app.use(groupRoutes);
+app.use(formRoutes);
 
 const mongoUri =
   "mongodb+srv://admin:Guitarra7762@cluster0.us2mg.mongodb.net/<dbname>?retryWrites=true&w=majority";
