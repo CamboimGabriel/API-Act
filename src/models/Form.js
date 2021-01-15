@@ -9,18 +9,7 @@ const formSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  questionario: [
-    {
-      pergunta: {
-        type: String,
-        default: "",
-      },
-      resposta: {
-        type: String,
-        default: "",
-      },
-    },
-  ],
+  questionario: { type: Object },
 });
 
 mongoose.model("Form", formSchema);

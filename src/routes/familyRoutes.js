@@ -50,7 +50,7 @@ router.get("/familia/:id", async (req, res) => {
   res.send(familia);
 });
 
-roouter.get("/familia/form/:id", async (req, res) => {
+router.get("/familia/form/:id", async (req, res) => {
   const id = req.params.id;
 
   const familia = await Family.findById(id);

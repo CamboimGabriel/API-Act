@@ -56,7 +56,7 @@ router.get("/grupos", async (req, res) => {
 });
 
 router.get("/grupo/:id", async (req, res) => {
-  const { id } = req.params.id;
+  const id = req.params.id;
 
   const grupo = await Group.findById(id);
 
