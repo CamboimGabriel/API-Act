@@ -21,7 +21,7 @@ router.post("/novoFormulario", async (req, res) => {
 
   try {
     const formulario = new Form({
-      familyId,
+      familyId: familyId,
       numeroDoFormulario: numeroDoFormulario.length + 1,
       questionario,
     });
