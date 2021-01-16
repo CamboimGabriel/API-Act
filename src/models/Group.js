@@ -21,6 +21,10 @@ const groupSchema = new mongoose.Schema({
       },
     },
   ],
+  fase: {
+    type: Number,
+    default: 1,
+  },
 });
 
 mongoose.model("Group", groupSchema);

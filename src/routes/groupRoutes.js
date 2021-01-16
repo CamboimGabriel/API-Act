@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const mongoose = require("mongoose");
 const Group = mongoose.model("Group");
@@ -51,16 +52,35 @@ router.post("/novogrupo", async (req, res) => {
 
 router.get("/grupos", async (req, res) => {
   const grupos = await Group.find({ userId: req.user._id });
-  console.log(req.user._id--);
   res.send(grupos);
 });
 
-router.get("/grupo/:id", async (req, res) => {
+router.get("/grupo/fase/:id", async (req, res) => {
   const id = req.params.id;
 
   const grupo = await Group.findById(id);
 
-  res.send(grupo);
+  if (grupo.fase === 1) {
+    await Group.findByIdAndUpdate(id, {
+      $set: {
+        fase: 2,
+        controle: grupo.intervencao,
+        intervencao: grupo.controle,
+      },
+    });
+  } else if (grupo.fase === 2) {
+    await Group.findByIdAndUpdate(id, {
+      $set: {
+        fase: 3,
+        controle: [],
+        intervencao: grupo.controle.concat(grupo.intervencao),
+      },
+    });
+  }
+
+  const newGroup = await Group.findById(id);
+
+  res.send([newGroup]);
 });
 
 module.exports = router;
