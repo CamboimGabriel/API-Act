@@ -51,7 +51,18 @@ router.post("/novogrupo", async (req, res) => {
 });
 
 router.get("/grupos", async (req, res) => {
-  const grupos = await Group.find({ userId: req.user._id });
+  const grupos = { ativos: [], encerrados: [] };
+
+  grupos.ativos = await Group.find({
+    userId: req.user._id,
+    $or: [{ fase: 1 }, { fase: 2 }],
+  });
+
+  grupos.encerrados = await Group.find({
+    userId: req.user._id,
+    fase: 3,
+  });
+
   res.send(grupos);
 });
 
