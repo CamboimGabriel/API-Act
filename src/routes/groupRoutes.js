@@ -37,6 +37,15 @@ router.post("/novogrupo", async (req, res) => {
 
     const families2 = families.splice(0, Math.ceil(families.length / 2));
 
+    await Family.updateMany(
+      { _id: { $in: families } },
+      {
+        $set: {
+          passouControle: 1,
+        },
+      }
+    );
+
     const group = new Group({
       controle: families,
       intervencao: families2,
