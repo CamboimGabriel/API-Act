@@ -136,7 +136,7 @@ const familySchema = new mongoose.Schema({
   moraAtualmente: [
     {
       type: String,
-      required: true,
+      default: "",
     },
   ],
 });
