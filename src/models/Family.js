@@ -96,33 +96,21 @@ const familySchema = new mongoose.Schema({
       type: String,
       default: " ",
     },
-    idadeFilhos: {
-      type: String,
-      default: " ",
-    },
     filhos0a6anos: {
       type: Number,
       default: " ",
     },
-    moradia: {
-      type: String,
-      default: " ",
-    },
-    situacaoMoradia: {
-      type: String,
-      default: " ",
-    },
-    numeroComodos: {
-      type: String,
-      default: " ",
-    },
     pessoasMorando: {
-      type: String,
+      type: Number,
       default: " ",
     },
     recebeAuxilio: {
       type: String,
       default: " ",
+    },
+    casoReceba: {
+      type: String,
+      default: "Não",
     },
     rendaMensal: {
       type: String,
@@ -145,6 +133,12 @@ const familySchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  moraAtualmente: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
 });
 
 mongoose.model("Family", familySchema);

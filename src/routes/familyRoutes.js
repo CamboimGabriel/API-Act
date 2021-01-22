@@ -8,15 +8,14 @@ const router = express.Router();
 router.use(requireAuth);
 
 router.post("/novafamilia", async (req, res) => {
-  const { dataCriacao, crianca, cuidador, residentesCasa } = req.body;
+  const { crianca, cuidador, moraAtualmente } = req.body;
 
   try {
     const family = new Family({
       userId: req.user._id,
       crianca,
       cuidador,
-      dataCriacao,
-      residentesCasa,
+      moraAtualmente,
     });
     await family.save();
 
@@ -57,13 +56,16 @@ router.get("/familia/form/:id", async (req, res) => {
 
   res.send(familia.formulariosPreenchidos);
 });
+
 router.post("/familia/disable/", async (req, res) => {
   const { id } = req.body;
+
   await Family.findByIdAndUpdate(id, {
     $set: {
       desabilitado: 1,
     },
   });
+
   res.send("ok");
 });
 
