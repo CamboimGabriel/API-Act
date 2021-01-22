@@ -57,5 +57,14 @@ router.get("/familia/form/:id", async (req, res) => {
 
   res.send(familia.formulariosPreenchidos);
 });
+router.post("/familia/disable/", async (req, res) => {
+  const { id } = req.body;
+  await Family.findByIdAndUpdate(id, {
+    $set: {
+      desabilitado: 1,
+    },
+  });
+  res.send("ok");
+});
 
 module.exports = router;
