@@ -46,6 +46,8 @@ router.post("/novogrupo", async (req, res) => {
       }
     );
 
+    console.log(families);
+
     const group = new Group({
       controle: families,
       intervencao: families2,
