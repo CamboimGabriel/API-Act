@@ -14,6 +14,7 @@ router.post("/novogrupo", async (req, res) => {
     const families = await Family.find({
       userId: req.user._id,
       pertenceGrupo: 0,
+      desabilitado: 0,
     });
 
     var j, x, i;
