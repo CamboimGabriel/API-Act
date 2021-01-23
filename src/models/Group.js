@@ -5,8 +5,8 @@ const groupSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  controle: [],
-  intervencao: [],
+  controle: [{ type: mongoose.Schema.Types.ObjectId, ref: "Family" }],
+  intervencao: [{ type: mongoose.Schema.Types.ObjectId, ref: "Family" }],
   fase: {
     type: Number,
     default: 1,

@@ -46,8 +46,6 @@ router.post("/novogrupo", async (req, res) => {
       }
     );
 
-    console.log(families);
-
     const group = new Group({
       controle: families,
       intervencao: families2,
@@ -67,12 +65,12 @@ router.get("/grupos", async (req, res) => {
   grupos.ativos = await Group.find({
     userId: req.user._id,
     $or: [{ fase: 1 }, { fase: 2 }],
-  });
+  }).populate(["intervencao", "controle"]);
 
   grupos.encerrados = await Group.find({
     userId: req.user._id,
     fase: 3,
-  });
+  }).populate(["intervencao", "controle"]);
 
   res.send(grupos);
 });
