@@ -26,7 +26,7 @@ router.post("/novogrupo", async (req, res) => {
     }
 
     await Family.updateMany(
-      { userId: req.user._id },
+      { userId: req.user._id, desabilitado: 0 },
       {
         $set: {
           pertenceGrupo: 1,
