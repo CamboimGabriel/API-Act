@@ -8,113 +8,112 @@ const familySchema = new mongoose.Schema({
   crianca: {
     nome: {
       type: String,
-      default: " ",
+      required: true,
     },
     sexo: {
       type: String,
-      default: " ",
+      required: true,
     },
     idade: {
       type: Number,
-      default: " ",
+      required: true,
     },
     nascimento: {
       type: String,
-      default: " ",
+      required: true,
     },
     pele: {
       type: String,
-      default: " ",
+      required: true,
     },
   },
   cuidador: {
     nome: {
       type: String,
-      default: " ",
+      required: true,
     },
     idade: {
       type: Number,
-      default: " ",
+      required: true,
     },
     nascimento: {
       type: String,
-      default: " ",
+      required: true,
     },
     parentesco: {
       type: String,
-      default: " ",
+      required: true,
     },
     escolaridade: {
       type: String,
-      default: " ",
+      required: true,
     },
     anosEstudo: {
       type: Number,
-      default: " ",
+      required: true,
     },
     localGrupo: {
       type: String,
-      default: " ",
+      required: true,
     },
     endereco: {
       type: String,
-      default: " ",
+      required: true,
     },
     cep: {
       type: Number,
-      default: " ",
+      required: true,
     },
     cidade: {
       type: String,
-      default: " ",
+      required: true,
     },
     estado: {
       type: String,
-      default: " ",
+      required: true,
     },
     telefones: {
       type: String,
-      default: " ",
+      required: true,
     },
     ocupacao: {
       type: String,
-      default: " ",
+      required: true,
     },
     pele: {
       type: String,
-      default: " ",
+      required: true,
     },
     religiao: {
       type: String,
-      default: " ",
+      required: true,
     },
     situacaoConjugal: {
       type: String,
-      default: " ",
+      required: true,
     },
     numeroFilhos: {
       type: String,
-      default: " ",
+      required: true,
     },
     filhos0a6anos: {
       type: Number,
-      default: " ",
+      required: true,
     },
     pessoasMorando: {
       type: Number,
-      default: " ",
+      required: true,
     },
     recebeAuxilio: {
       type: String,
-      default: " ",
+      required: true,
     },
     casoReceba: {
       type: String,
-      default: "Não",
     },
     rendaMensal: {
       type: String,
-      default: " ",
+      required: true,
     },
   },
   pertenceGrupo: {
@@ -136,7 +135,7 @@ const familySchema = new mongoose.Schema({
   moraAtualmente: [
     {
       type: String,
-      default: "",
+      required: true,
     },
   ],
 });
