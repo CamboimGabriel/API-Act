@@ -96,7 +96,7 @@ const familySchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    filhos0a6anos: {
+    filhos0a6Anos: {
       type: Number,
       required: true,
     },
