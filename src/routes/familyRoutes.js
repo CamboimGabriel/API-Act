@@ -53,7 +53,7 @@ router.post("/novafamilia", async (req, res) => {
         nome: cuidadorNome,
         idade: cuidadorIdade,
         nascimento: cuidadorNascimento,
-        parentesto: cuidadorParentesco,
+        parentesco: cuidadorParentesco,
         anosEstudo: cuidadorAnosEstudo,
         localGrupo: cuidadorLocalGrupo,
         endereco: cuidadorEndereco,
