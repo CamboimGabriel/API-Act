@@ -20,7 +20,7 @@ app.use(groupRoutes);
 app.use(formRoutes);
 
 const mongoUri =
-  "mongodb+srv://admin:Guitarra7762@cluster0.us2mg.mongodb.net/<dbname>?retryWrites=true&w=majority";
+  "mongodb+srv://act:Ceara@2020@clusteract.wbvvn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
