@@ -10,9 +10,10 @@ const groupRoutes = require("./routes/groupRoutes");
 const formRoutes = require("./routes/formRoutes");
 const bodyParser = require("body-parser");
 const requireAuth = require("./middlewares/requireAuth");
-
+const cors = require("cors");
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(familyRoutes);
@@ -37,6 +38,6 @@ app.get("/", requireAuth, (req, res) => {
   res.send(`Your user is ${req.user.nick}`);
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Listening on port 3000");
+app.listen(process.env.PORT || 5000, () => {
+  console.log("Listening on port 5000");
 });
