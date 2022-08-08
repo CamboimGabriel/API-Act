@@ -103,13 +103,11 @@ router.get("/grupo/fase/:id", async (req, res) => {
 
   if (newGroup.fase < 3) {
     const group = { ativos: [newGroup] };
-    console.log(group);
     res.send(group);
   } else {
     const group = {
       encerrados: [newGroup],
     };
-    console.log(group);
     res.send(group);
   }
 });

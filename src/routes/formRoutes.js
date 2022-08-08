@@ -11,8 +11,6 @@ router.use(requireAuth);
 router.post("/novoFormulario", async (req, res) => {
   const { familyId, questionario } = req.body;
 
-  console.log(familyId);
-
   const numeroDoFormulario = await Form.find({ familyId });
 
   await Family.findByIdAndUpdate(familyId, {

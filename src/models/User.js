@@ -11,6 +11,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cidade: {
+    type: String,
+  },
+  coord: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 userSchema.pre("save", function (next) {
