@@ -99,6 +99,20 @@ router.get("/familias", async (req, res) => {
   res.send(familias);
 });
 
+router.get("/todasfamilias", async (req, res) => {
+  const familias = { semGrupo: [], comGrupo: [] };
+
+  familias.semGrupo = await Family.find({
+    pertenceGrupo: 0,
+  });
+
+  familias.comGrupo = await Family.find({
+    pertenceGrupo: 1,
+  });
+
+  res.send(familias);
+});
+
 router.get("/familia/:id", async (req, res) => {
   const id = req.params.id;
 
