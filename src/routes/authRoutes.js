@@ -65,4 +65,20 @@ router.get("/users", async (req, res) => {
   res.send(user);
 });
 
+router.post("/remove-user", async (req, res) => {
+  const { id } = req.body;
+
+  await User.findByIdAndDelete(id);
+
+  res.send("done");
+});
+
+router.post("/edit-user", async (req, res) => {
+  const { id, nick } = req.body;
+
+  await User.findByIdAndUpdate(id, { nick });
+
+  res.send("done");
+});
+
 module.exports = router;
