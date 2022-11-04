@@ -25,6 +25,18 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+router.post("/newnick", async (req, res) => {
+  const { oldNick, newNick } = req.body;
+
+  try {
+    await User.findOneAndUpdate({ nick: oldNick }, { nick: newNick });
+
+    res.send("success");
+  } catch (err) {
+    return res.status(422).send(err.message);
+  }
+});
+
 router.post("/changepassword", async (req, res) => {
   const { nick, password } = req.body;
 
