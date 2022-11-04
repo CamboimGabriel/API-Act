@@ -37,6 +37,18 @@ router.post("/newnick", async (req, res) => {
   }
 });
 
+router.post("/newcity", async (req, res) => {
+  const { nick, city } = req.body;
+
+  try {
+    await User.findOneAndUpdate({ nick }, { cidade: city });
+
+    res.send("success");
+  } catch (err) {
+    return res.status(422).send(err.message);
+  }
+});
+
 router.post("/changepassword", async (req, res) => {
   const { nick, password } = req.body;
 
