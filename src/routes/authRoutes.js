@@ -10,11 +10,13 @@ router.post("/signup", async (req, res) => {
   const { nick, password, cidade, coord } = req.body;
 
   try {
+    let user;
+
     if (coord) {
-      const user = new User({ nick, password, cidade, coord });
+      user = new User({ nick, password, cidade, coord });
       await user.save();
     } else {
-      const user = new User({ nick, password, cidade });
+      user = new User({ nick, password, cidade });
       await user.save();
     }
 
