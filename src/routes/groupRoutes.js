@@ -76,6 +76,20 @@ router.get("/grupos", async (req, res) => {
   res.send(grupos);
 });
 
+router.get("/todososgrupos", async (req, res) => {
+  const grupos = { ativos: [], encerrados: [] };
+
+  grupos.ativos = await Group.find({
+    $or: [{ fase: 1 }, { fase: 2 }],
+  }).populate(["intervencao", "controle"]);
+
+  grupos.encerrados = await Group.find({
+    fase: 3,
+  }).populate(["intervencao", "controle"]);
+
+  res.send(grupos);
+});
+
 router.get("/grupo/fase/:id", async (req, res) => {
   const id = req.params.id;
 
